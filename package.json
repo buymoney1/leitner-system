@@ -12,6 +12,7 @@
     "@auth/prisma-adapter": "^2.11.1",
     "@hookform/resolvers": "^5.2.2",
     "@prisma/client": "^6.19.0",
+    "@prisma/extension-accelerate": "^2.0.2",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
     "critters": "^0.0.25",
