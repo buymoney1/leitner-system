@@ -2,10 +2,17 @@
 "use client";
 
 import { useState } from "react";
-import { Card } from "@prisma/client";
+
+// تعریف تایپ کارت مورد نیاز
+export interface CardType {
+  id: string;
+  front: string;
+  back: string;
+  boxNumber?: number;
+}
 
 interface ReviewCardProps {
-  card: Card;
+  card: CardType;
   onResult: (cardId: string, isCorrect: boolean) => void;
 }
 
@@ -27,14 +34,14 @@ export default function ReviewCard({ card, onResult }: ReviewCardProps) {
       style={{ perspective: "1000px" }}
     >
       <div
-        className={`absolute inset-0 w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
+        className={`absolute inset-0 w-full h-full transition-transform duration-500 ${
           isFlipped ? "rotate-y-180" : ""
         }`}
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Front of card */}
         <div
-          className="absolute inset-0 w-full h-full bg-white rounded-lg shadow-lg flex items-center justify-center p-6 backface-hidden"
+          className="absolute inset-0 w-full h-full bg-white rounded-lg shadow-lg flex items-center justify-center p-6"
           style={{ backfaceVisibility: "hidden" }}
         >
           <p className="text-xl font-semibold text-center">{card.front}</p>
@@ -42,10 +49,10 @@ export default function ReviewCard({ card, onResult }: ReviewCardProps) {
 
         {/* Back of card */}
         <div
-          className="absolute inset-0 w-full h-full bg-blue-500 text-white rounded-lg shadow-lg flex items-center justify-center p-6 rotate-y-180 backface-hidden"
+          className="absolute inset-0 w-full h-full bg-blue-500 text-white rounded-lg shadow-lg flex items-center justify-center p-6"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
-          <div>
+          <div className="flex flex-col items-center">
             <p className="text-xl font-semibold text-center">{card.back}</p>
             <div className="mt-6 flex justify-center gap-4">
               <button
