@@ -1,4 +1,3 @@
-// src/app/api/cards/add-from-book/route.ts
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -32,17 +31,17 @@ export async function POST(req: Request) {
 
     const today = new Date();
     today.setUTCHours(0, 0, 0, 0);
-    const todayString = today.toISOString();
 
     // ایجاد کپی از تمام کارت‌های کتاب برای کاربر فعلی
     const newCards = await Promise.all(
-      book.cards.map(card =>
+      book.cards.map((card: typeof book.cards[number]) =>
         prisma.card.create({
           data: {
             front: card.front,
             back: card.back,
-            userId: userId,
-            nextReviewAt: todayString, // برای مرور امروز آماده شوند
+            userId,
+            nextReviewAt: today,
+            boxNumber: 1, // شروع از جعبه اول
           },
         })
       )
