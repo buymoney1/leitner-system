@@ -54,12 +54,13 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     // این callback فقط id را از sub به token منتقل می‌کند
     async jwt({ token, user }) {
-      // فقط در زمان ورود اولیه، user وجود دارد
       if (user) {
         token.id = user.id;
-      } else {
-        // در درخواست‌های بعدی، id را از sub می‌خوانیم
+      } else if (token.sub) {
         token.id = token.sub;
+      } else {
+        // fallback اگر sub وجود نداشت
+        token.id = ""; // یا یه مقدار پیش‌فرض امن
       }
       return token;
     },

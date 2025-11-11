@@ -61,7 +61,7 @@ export default async function DashboardPage() {
           <div className="space-y-3">
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <div>
-                <p className="font-medium text-gray-900">مرور کلمه "Hello"</p>
+                <p className="font-medium text-gray-900">مرور کلمه Hello</p>
                 <p className="text-sm text-gray-500">جعبه 2</p>
               </div>
               <span className="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">
@@ -70,7 +70,7 @@ export default async function DashboardPage() {
             </div>
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <div>
-                <p className="font-medium text-gray-900">مرور کلمه "Book"</p>
+                <p className="font-medium text-gray-900">مرور کلمه Book</p>
                 <p className="text-sm text-gray-500">جعبه 1</p>
               </div>
               <span className="px-2 py-1 text-xs font-semibold text-red-800 bg-red-100 rounded-full">
@@ -79,7 +79,7 @@ export default async function DashboardPage() {
             </div>
             <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
               <div>
-                <p className="font-medium text-gray-900">مرور کلمه "Water"</p>
+                <p className="font-medium text-gray-900">مرور کلمه Water</p>
                 <p className="text-sm text-gray-500">جعبه 3</p>
               </div>
               <span className="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">

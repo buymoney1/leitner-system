@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     }
 
     let newBoxNumber;
-    let nextReviewDate;
+
 
         if (isCorrect) {
       // پاسخ صحیح: رفتن به جعبه بعدی (حداکثر جعبه 5)
@@ -60,10 +60,10 @@ export async function POST(req: Request) {
 
     // محاسبه تاریخ مرور بعدی
     const intervalDays = boxIntervals[newBoxNumber as keyof typeof boxIntervals];
-    nextReviewDate = new Date();
+    const nextReviewDate = new Date();
     nextReviewDate.setDate(nextReviewDate.getDate() + intervalDays);
     const nextReviewAt = nextReviewDate.toISOString();
-
+    
     // به‌روزرسانی کارت در دیتابیس
     const updatedCard = await prisma.card.update({
       where: { id: cardId },
